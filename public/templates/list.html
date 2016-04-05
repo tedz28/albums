@@ -1,0 +1,35 @@
+<div class="container">
+    <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" ng-model="searchText" placeholder="Search album here...">
+    </div>
+    <!-- list view -->
+    <div class="col-md-12 col-sm-12" ng-repeat="album in albums | filter : searchText">
+        <!-- MODAL WINDOW -->
+        <script type="text/ng-template" id="myModalContent.html">
+            <div class="modal-header">
+                <h3 class="modal-title">Cover Image for "{{album.title}}"</h3>
+            </div>
+            <div class="modal-body">
+                <img ng-src="{{album.imageURLLarge}}" width=80% height=80% alt="Missing Pic">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" ng-click="ok()">Close</button>
+            </div>
+        </script>
+        <!-- Album Info -->
+        <div class="row album-info">
+            <div class="col-md-8 col-sm-8">
+                <img ng-src="{{album.imageURLSmall}}"  ng-click="open(album)" alt="Missing Pic">
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <h3>Title: {{album.title}}</h3>
+                <br>
+                <h3>Artist: {{album.artist}}</h3>
+                <br>
+                <h3>Year: {{album.year}}</h3>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Albums</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-app="myApp">
+
+    <!-- navigation -->
+    <div class="navbar  navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header"><a href="#/" class="navbar-brand">Home</a></div>
+            <ul class="nav navbar-nav">
+                <li><a href="#/albums">Albums</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- main content-->
+    <section class="content">
+        <div ng-view></div>
+    </section>
+
+    <script src="javascripts/angular.min.js"></script>
+    <script src="javascripts/angular-route.min.js"></script>
+    <script src="javascripts/angular-animate.min.js"></script>
+    <script src="javascripts/ui-bootstrap-tpls-1.3.0.min.js"></script>
+    <script src="javascripts/app.js"></script>
+</body>
+</html>

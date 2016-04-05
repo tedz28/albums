@@ -1,0 +1,85 @@
+<div class="container">
+    <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" ng-model="searchText" placeholder="Search album here...">
+    </div>
+    <!-- view option bar -->
+    <div class="btn-group">
+        <!-- These two buttons switch the layout variable -->
+        <button class="btn btn-default" ng-click="layout = 'list'">List</button>
+        <button class="btn btn-default" ng-click="layout = 'grid'">Grid</button>
+        <button class="btn btn-default" ng-click="layout = 'carousel'">Carousel</button>
+    </div>
+    <!-- list view -->
+    <div class="row list-view" ng-show="layout == 'list'">
+        <div class="col-md-12 col-sm-12" ng-repeat="album in albums | filter : searchText">
+            <!-- MODAL WINDOW -->
+            <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">
+                    <h3 class="modal-title">Cover Image for "{{album.title}}"</h3>
+                </div>
+                <div class="modal-body">
+                    <img ng-src="{{album.imageURLLarge}}" width=80% height=80% alt="Missing Pic">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" ng-click="ok()">Close</button>
+                </div>
+            </script>
+            <!-- Album Info -->
+            <div class="row album-info">
+                <div class="col-md-8 col-sm-8">
+                    <img ng-src="{{album.imageURLSmall}}"  ng-click="open(album)" alt="Missing Pic">
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <h3>Title: {{album.title}}</h3>
+                    <br>
+                    <h3>Artist: {{album.artist}}</h3>
+                    <br>
+                    <h3>Year: {{album.year}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Grid View -->
+    <div class="row row-eq-height grid-view" ng-show="layout == 'grid'">
+        <div class="col-md-4 col-sm-6" ng-repeat="album in albums | filter : searchText">
+            <!-- MODAL WINDOW -->
+            <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">
+                    <h3 class="modal-title">Cover Image for "{{album.title}}"</h3>
+                </div>
+                <div class="modal-body">
+                    <img ng-src="{{album.imageURLLarge}}" width=80% height=80% alt="Missing Pic">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" ng-click="ok()">Close</button>
+                </div>
+            </script>
+            <!-- Album Info -->
+            <div class="row album-info">
+                <div class="col-md-12 col-sm-12">
+                    <img ng-src="{{album.imageURLSmall}}"  ng-click="open(album)" alt="Missing Pic">
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <ul class="list-group">
+                        <li class="list-group-item">Title: {{album.title}}</li>
+                        <li class="list-group-item">Artist: {{album.artist}}</li>
+                        <li class="list-group-item">Year: {{album.year}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Carousel View -->
+    <div class="row carousel-view" ng-show="layout == 'carousel'">
+        <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+            <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                <img ng-src="{{slide.image}}" style="margin:auto;">
+                <div class="carousel-caption">
+                    <p>{{slide.text}}</p>
+                </div>
+            </uib-slide>
+        </uib-carousel>
+
+    </div>
+</div>
