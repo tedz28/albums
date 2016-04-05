@@ -13,8 +13,8 @@ a {
 }
 
 img {
-  height: 80%;
-  width: 80%;
+  height: 50%;
+  width: 50%;
 }
 
 .album-info {
@@ -32,3 +32,6 @@ img {
   overflow: hidden;
 }
 
+.list-group {
+    margin-top: 10px;
+}
