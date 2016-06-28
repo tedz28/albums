@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('myApp', ['ngRoute','ngAnimate','ui.bootstrap'])
     //routing config
     .config(['$routeProvider',
